@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  code-server:
+    image: lscr.io/linuxserver/code-server
+    container_name: code-server
+    #env_file: .env
+    environment:
+      - PUID=1000
+      - PGID=100
+      - TZ=Asia/Jakarta
+      - PASSWORD=Mohammed21!
+      - SUDO_PASSWORD=Mohammed21!
+    volumes:
+      - ./config:/config
+    ports:
+      - 8433:8443
+
