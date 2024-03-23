@@ -31,7 +31,7 @@ services:
       - "$HOME/.local:/home/coder/.local"
       - "$HOME/.config:/home/coder/.config"
       - "project:/home/coder/project"
-    user: "${UID}:${GID}"
+    user: "root:x"
     environment:
       - DOCKER_USER=${USER}
 
