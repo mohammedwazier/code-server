@@ -15,4 +15,21 @@ services:
       - ./config:/config
     ports:
       - 8433:8443
+  openvscode-server:
+    image: gitpod/openvscode-server
+    container_name: openvscode-server
+    volumes:
+      - workspace:/home/workspace:cached
+    ports:
+      - 3010:3000
+  server:
+    image: codercom/code-server:latest
+    container_name: server
+    volumes:
+      - project:/home/coder/project
+    ports:
+      - 8088:8080
 
+volumes:
+  workspace:
+  project:
