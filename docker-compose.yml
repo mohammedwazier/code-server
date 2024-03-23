@@ -25,10 +25,15 @@ services:
   server:
     image: codercom/code-server:latest
     container_name: server
-    volumes:
-      - project:/home/coder/project
     ports:
       - 8088:8080
+    volumes:
+      - "$HOME/.local:/home/coder/.local"
+      - "$HOME/.config:/home/coder/.config"
+      - "project:/home/coder/project"
+    user: "${UID}:${GID}"
+    environment:
+      - DOCKER_USER=${USER}
 
 volumes:
   workspace:
